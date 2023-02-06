@@ -21,9 +21,6 @@ public class MyController {
     public MyController(UserService userService) {
         this.userService = userService;
     }
-//    @Autowired
-//    private EmployeeService employeeService;
-
 
     @RequestMapping("/")
     public String showAllUsers(Model model) {
