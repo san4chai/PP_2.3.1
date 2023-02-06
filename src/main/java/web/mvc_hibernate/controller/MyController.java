@@ -26,9 +26,10 @@ public class MyController {
     public String showAllUsers(Model model) {
 
         List<User> allUsers = userService.getAllUsers();
-        model.addAttribute("allEmps", allUsers);
+        model.addAttribute("allUsers", allUsers);
         return "all-users";
     }
+
     @RequestMapping("/addNewUser")
     public String addNewUser(Model model) {
 
@@ -37,6 +38,7 @@ public class MyController {
 
         return "user-info";
     }
+
     @RequestMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
@@ -49,9 +51,10 @@ public class MyController {
         model.addAttribute("user", user);
         return "user-info";
     }
+
     @RequestMapping("/deleteUser")
     public String deleteEmployee(@RequestParam("userId") int id) {
         userService.deleteUser(id);
-    return "redirect:/";
+        return "redirect:/";
     }
 }

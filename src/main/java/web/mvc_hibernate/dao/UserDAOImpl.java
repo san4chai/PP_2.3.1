@@ -23,7 +23,7 @@ public class UserDAOImpl implements UserDAO {
     public List<User> getAllUsers() {
 
         Session session = sessionFactory.getCurrentSession();
-        List<User> allUsers = session.createQuery("from User", User.class).getResultList();
+        List<User> allUsers = session.createQuery("FROM User", User.class).getResultList();
         System.out.println(allUsers);
         return allUsers;
     }
@@ -44,9 +44,8 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void deleteUser(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Query<User> query = session.createQuery("delete from User " + "where  id =:userId");
+        Query<User> query = session.createQuery("DELETE FROM User WHERE id =:userId");
         query.setParameter("userId", id);
         query.executeUpdate();
-
     }
 }

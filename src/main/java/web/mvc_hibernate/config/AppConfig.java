@@ -56,17 +56,14 @@ public class AppConfig {
     }
 
     public Properties getHibernateProperties() {
-
         try {
             Properties properties = new Properties();
             InputStream is = getClass().getClassLoader().getResourceAsStream("db.properties");
             properties.load(is);
-
             return properties;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Bean
